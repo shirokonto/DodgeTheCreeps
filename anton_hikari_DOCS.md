@@ -1,3 +1,5 @@
+
+## Fragen 
 a) Wie wird Input in das Spiel integriert? Welche Schritte sind notwendig?
 
 b) Warum wird velocity normalisiert? Was passiert, wenn dies nicht vollzogen wird?
