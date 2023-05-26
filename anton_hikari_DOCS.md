@@ -12,8 +12,8 @@ c) Welche Schritte sind notwendig, um Kollisionen im Spiel zu implementieren?
 
 ## Drei visuelle Anpassungen:
 a) Character ändern
-b) Hintergrundfarbe zu Space ändern
-c) Schriftart ändern
+b) Hintergrund geändert zu parallaxen Effect
+c) Schriftart geändert zu Ekors (https://www.1001fonts.com/ekorsnoncommercial-font.html)
 
 ## Drei Gameplay-Anpassungen:
 a) Verschiedene Geschwindigkeit

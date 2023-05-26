@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfj70dsihprjm"]
 
-[ext_resource type="FontFile" uid="uid://b4kki6nr46122" path="res://fonts/Xolonium-Regular.ttf" id="1_mcuxv"]
 [ext_resource type="Script" path="res://hud.gd" id="1_wjvea"]
+[ext_resource type="FontFile" uid="uid://c1casq451l8oy" path="res://fonts/EkorsNonCommercial.otf" id="2_0pynk"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_wjvea")
@@ -14,7 +14,7 @@ offset_left = -22.5
 offset_right = 22.5
 offset_bottom = 81.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_mcuxv")
+theme_override_fonts/font = ExtResource("2_0pynk")
 theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
@@ -32,7 +32,7 @@ offset_right = 174.0
 offset_bottom = 81.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_mcuxv")
+theme_override_fonts/font = ExtResource("2_0pynk")
 theme_override_font_sizes/font_size = 64
 text = "Dodge the
 creeps!"
@@ -45,7 +45,7 @@ offset_left = 112.0
 offset_top = 580.0
 offset_right = 342.0
 offset_bottom = 666.0
-theme_override_fonts/font = ExtResource("1_mcuxv")
+theme_override_fonts/font = ExtResource("2_0pynk")
 theme_override_font_sizes/font_size = 64
 text = "Start"
 
