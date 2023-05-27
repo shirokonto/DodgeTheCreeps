@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://daig1dae26j62"]
+[gd_scene load_steps=7 format=3 uid="uid://daig1dae26j62"]
 
 [ext_resource type="PackedScene" uid="uid://o0tljvc4xj16" path="res://player.tscn" id="1_51o5a"]
 [ext_resource type="Script" path="res://main.gd" id="1_ohli2"]
 [ext_resource type="PackedScene" uid="uid://boch04psubhra" path="res://mob.tscn" id="2_cxa13"]
+[ext_resource type="PackedScene" uid="uid://77xpd8eajygk" path="res://coin.tscn" id="3_kjjvg"]
 [ext_resource type="PackedScene" uid="uid://bfj70dsihprjm" path="res://hud.tscn" id="4_d7gg6"]
 
 [sub_resource type="Curve2D" id="Curve2D_tnusm"]
@@ -14,6 +15,7 @@ point_count = 6
 [node name="Main" type="Node"]
 script = ExtResource("1_ohli2")
 mob_scene = ExtResource("2_cxa13")
+coin_scene = ExtResource("3_kjjvg")
 
 [node name="Player" parent="." instance=ExtResource("1_51o5a")]
 
@@ -37,6 +39,11 @@ position = Vector2(-2, 0)
 
 [node name="HUD" parent="." instance=ExtResource("4_d7gg6")]
 
+[node name="CoinsContainer" type="Container" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="coins_collected" from="Player" to="." method="_on_player_coins_collected"]
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

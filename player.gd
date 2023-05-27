@@ -1,7 +1,9 @@
 extends Area2D
 signal hit
+signal coins_collected
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
+var sprint_speed = 1000
 var screen_size # Size of the game window.
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +23,10 @@ func _process(delta):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
+	if Input.is_action_pressed("sprint"):
+		speed = sprint_speed
+	elif !Input.is_action_pressed("sprint"):
+		speed = 400
 
 	if velocity.length() > 0: # prevents fast diagonal speeding
 		velocity = velocity.normalized() * speed
@@ -43,9 +49,17 @@ func _process(delta):
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 func _on_body_entered(body):
-	hide()
-	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true) # tells Godot to wait to disable the shape until it's safe to do so
+	if body.is_in_group("coins"):
+		body.queue_free()
+		# coins_collected.emit
+		body.hide()
+	else:
+		hide()
+		hit.emit()
+		$CollisionShape2D.set_deferred("disabled", true) # tells Godot to wait to disable the shape until it's safe to do so
+
+func collect_coins():
+	pass
 
 func start(pos):
 	position = pos

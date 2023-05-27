@@ -1,26 +1,34 @@
 extends Node
 
 @export var mob_scene: PackedScene
+@export var coin_scene: PackedScene
 var score
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+var coinCount = 0
+var maxCoins = 3
 
 func new_game():
 	get_tree().call_group("mobs", "queue_free") # deletes every mob
+	get_tree().call_group("coins", "queue_free") # deletes every coin
 	score = 0
+	coinCount = 0
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	spawn_initial_coins()
 
+func spawn_initial_coins():
+	for i in range(maxCoins):
+		var coin = coin_scene.instantiate()
+		coin.position = generate_random_position()
+		$CoinsContainer.add_child(coin)
+		coinCount += 1
+		
+func generate_random_position():
+	var randX = randf_range(100, 500)
+	var randY = randf_range(100, 500)
+	return Vector2(randX, randY)		
+		
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
@@ -52,3 +60,7 @@ func _on_score_timer_timeout():
 func _on_start_timer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
+
+
+func _on_player_coins_collected():
+	pass # Replace with function body.
