@@ -1,28 +1,28 @@
 extends Node
 
 @export var mob_scene: PackedScene
-@export var coin_scene: PackedScene
+@export var bonus_scene: PackedScene
 var score
-var coinCount = 0
-var maxCoins = 3
+var bonusCount = 0
+var maxBoni = 3
 
 func new_game():
 	get_tree().call_group("mobs", "queue_free") # deletes every mob
 	get_tree().call_group("coins", "queue_free") # deletes every coin
 	score = 0
-	coinCount = 0
+	bonusCount = 0
 	$HUD.update_score(score)
 	$HUD.show_message("Get Ready")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
-	spawn_initial_coins()
+	spawn_initial_boni()
 
-func spawn_initial_coins():
-	for i in range(maxCoins):
-		var coin = coin_scene.instantiate()
-		coin.position = generate_random_position()
-		$CoinsContainer.add_child(coin)
-		coinCount += 1
+func spawn_initial_boni():
+	for i in range(maxBoni):
+		var bonus = bonus_scene.instantiate()
+		bonus.position = generate_random_position()
+		$BoniContainer.add_child(bonus)
+		bonusCount += 1
 		
 func generate_random_position():
 	var randX = randf_range(100, 500)
@@ -52,7 +52,6 @@ func _on_mob_timer_timeout():
 
 	add_child(mob) # Spawn mob by adding it to the Main scene.
 
-
 func _on_score_timer_timeout():
 	score += 1
 	$HUD.update_score(score)
@@ -61,6 +60,6 @@ func _on_start_timer_timeout():
 	$MobTimer.start()
 	$ScoreTimer.start()
 
-
-func _on_player_coins_collected():
-	pass # Replace with function body.
+func _on_player_boni_collected():
+	score +=2
+	$HUD.update_score(score)

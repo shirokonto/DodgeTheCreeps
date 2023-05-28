@@ -1,6 +1,6 @@
 extends Area2D
 signal hit
-signal coins_collected
+signal boni_collected
 
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var sprint_speed = 1000
@@ -49,17 +49,14 @@ func _process(delta):
 		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 func _on_body_entered(body):
-	if body.is_in_group("coins"):
+	if body.is_in_group("boni"):
 		body.queue_free()
-		# coins_collected.emit
+		boni_collected.emit()
 		body.hide()
 	else:
 		hide()
 		hit.emit()
 		$CollisionShape2D.set_deferred("disabled", true) # tells Godot to wait to disable the shape until it's safe to do so
-
-func collect_coins():
-	pass
 
 func start(pos):
 	position = pos
