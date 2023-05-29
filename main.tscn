@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://daig1dae26j62"]
+[gd_scene load_steps=10 format=3 uid="uid://daig1dae26j62"]
 
 [ext_resource type="PackedScene" uid="uid://o0tljvc4xj16" path="res://player.tscn" id="1_51o5a"]
 [ext_resource type="Script" path="res://main.gd" id="1_ohli2"]
 [ext_resource type="PackedScene" uid="uid://boch04psubhra" path="res://mob.tscn" id="2_cxa13"]
 [ext_resource type="PackedScene" uid="uid://77xpd8eajygk" path="res://bonus.tscn" id="3_e8eur"]
 [ext_resource type="PackedScene" uid="uid://bfj70dsihprjm" path="res://hud.tscn" id="4_d7gg6"]
+[ext_resource type="Texture2D" uid="uid://b5ev8ejwkfhyi" path="res://art/Sprite-Space Nebula.png" id="7_44ajj"]
+[ext_resource type="Texture2D" uid="uid://ch7qo2knyakdj" path="res://art/Sprite-Space Stars.png" id="7_jell5"]
+[ext_resource type="Texture2D" uid="uid://csmuhncjxrxi6" path="res://art/Sprite-Space Planet.png" id="8_paddf"]
 
 [sub_resource type="Curve2D" id="Curve2D_tnusm"]
 _data = {
@@ -42,6 +45,37 @@ position = Vector2(-2, 0)
 [node name="BoniContainer" type="Container" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="SpaceNebulaLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(720, 720)
+
+[node name="SpaceNebula" type="Sprite2D" parent="ParallaxBackground/SpaceNebulaLayer"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_44ajj")
+centered = false
+
+[node name="StarsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(720, 720)
+
+[node name="Stars" type="Sprite2D" parent="ParallaxBackground/StarsLayer"]
+scale = Vector2(4, 4)
+texture = ExtResource("7_jell5")
+centered = false
+offset = Vector2(0.143, 0)
+
+[node name="PlanetLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_offset = Vector2(-50, 0)
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Planet" type="Sprite2D" parent="ParallaxBackground/PlanetLayer"]
+scale = Vector2(4, 4)
+texture = ExtResource("8_paddf")
+centered = false
 
 [connection signal="boni_collected" from="Player" to="." method="_on_player_boni_collected"]
 [connection signal="hit" from="Player" to="." method="game_over"]

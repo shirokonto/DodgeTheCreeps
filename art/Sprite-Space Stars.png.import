@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5cxu8d3fysvb"
-path="res://.godot/imported/Sprite-Space Background.png-a6a1337502ac31583f743631d512ba5e.ctex"
+uid="uid://ch7qo2knyakdj"
+path="res://.godot/imported/Sprite-Space Stars.png-d71182a82b9560377f1f9ca4499eeb9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Sprite-Space Background.png"
-dest_files=["res://.godot/imported/Sprite-Space Background.png-a6a1337502ac31583f743631d512ba5e.ctex"]
+source_file="res://art/Sprite-Space Stars.png"
+dest_files=["res://.godot/imported/Sprite-Space Stars.png-d71182a82b9560377f1f9ca4499eeb9a.ctex"]
 
 [params]
 

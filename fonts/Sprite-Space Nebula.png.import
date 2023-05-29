@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5ev8ejwkfhyi"
-path="res://.godot/imported/Sprite-Space Nebula.png-cd08c8c4e388aea80ff3843a9004a9ac.ctex"
+uid="uid://cb1w42haf1aet"
+path="res://.godot/imported/Sprite-Space Nebula.png-71b87acf49e523408ee35735bbdb33e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Sprite-Space Nebula.png"
-dest_files=["res://.godot/imported/Sprite-Space Nebula.png-cd08c8c4e388aea80ff3843a9004a9ac.ctex"]
+source_file="res://fonts/Sprite-Space Nebula.png"
+dest_files=["res://.godot/imported/Sprite-Space Nebula.png-71b87acf49e523408ee35735bbdb33e5.ctex"]
 
 [params]
 

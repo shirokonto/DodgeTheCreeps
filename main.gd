@@ -64,3 +64,8 @@ func _on_player_boni_collected():
 	score +=2
 	$HUD.update_score(score)
 
+
+func _process(delta):
+	var player_position = get_node("Player").position
+	get_node("ParallaxBackground").scroll_offset = player_position
+	
