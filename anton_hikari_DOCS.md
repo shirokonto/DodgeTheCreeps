@@ -30,7 +30,7 @@
 		1. Ausgewählte Font in fonts-Ordner kopieren
 		2. Im Insepctor (HUD) des Buttons und der Labels unter Layout > Fonts : Font ersetzen
 		
-#### c) Ändereung vom AnimatedSprite2D des Players
+#### c) Änderung des AnimatedSprite2D vom Player
 		1. Für jedes vorhandene Sprite der Animation muss eine neues Sprite erstellt bzw. besorgt werden.
 		2. In der  in der AnimatedSprite2D Node der Player Scene jeden Frame der Animation mit einem neuen Frame austauschen.  
 
