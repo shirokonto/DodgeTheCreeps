@@ -8,7 +8,7 @@ var maxBoni = 3
 
 func new_game():
 	get_tree().call_group("mobs", "queue_free") # deletes every mob
-	get_tree().call_group("coins", "queue_free") # deletes every coin
+	get_tree().call_group("boni", "queue_free") # deletes every coin
 	score = 0
 	bonusCount = 0
 	$HUD.update_score(score)
