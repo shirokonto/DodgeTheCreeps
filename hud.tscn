@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfj70dsihprjm"]
+[gd_scene load_steps=4 format=3 uid="uid://bfj70dsihprjm"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_wjvea"]
 [ext_resource type="FontFile" uid="uid://c1casq451l8oy" path="res://fonts/EkorsNonCommercial.otf" id="2_0pynk"]
+[ext_resource type="Script" path="res://Pause.gd" id="3_1w16w"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_wjvea")
@@ -45,6 +46,8 @@ offset_left = 112.0
 offset_top = 580.0
 offset_right = 342.0
 offset_bottom = 666.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_0pynk")
 theme_override_font_sizes/font_size = 64
 text = "Start"
@@ -53,5 +56,55 @@ text = "Start"
 wait_time = 2.0
 one_shot = true
 
+[node name="Pause" type="Control" parent="."]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_1w16w")
+
+[node name="Overlay" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.180392, 0.180392, 0.584314)
+
+[node name="PauseLabel" type="Label" parent="Pause"]
+layout_mode = 2
+offset_left = 76.0
+offset_top = 283.0
+offset_right = 403.0
+offset_bottom = 348.0
+theme_override_fonts/font = ExtResource("2_0pynk")
+theme_override_font_sizes/font_size = 64
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Pause"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -140.0
+offset_right = 200.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_0pynk")
+theme_override_font_sizes/font_size = 64
+text = "Continue"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="Pause/ContinueButton" to="Pause" method="_on_continue_button_pressed"]

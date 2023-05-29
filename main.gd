@@ -63,3 +63,4 @@ func _on_start_timer_timeout():
 func _on_player_boni_collected():
 	score +=2
 	$HUD.update_score(score)
+
